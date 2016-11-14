@@ -139,4 +139,3 @@ class Album
         return $this->support;
     }
 }
-

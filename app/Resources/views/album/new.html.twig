@@ -1,11 +1,58 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Album creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+    <div class='row'>
+        <div class='col-sm-offset-1 col-sm-10'>
+            <div class='row'>
+                <h1>Nouvel Album</h1>
+                {{ form_start(form) }}
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.title, "Titre de l'album", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.title) }}
+                    <div class="col-sm-4">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.artiste, "Artiste de l'album", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.artiste) }}
+                    <div class="col-sm-4">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.artiste, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.genre, "Genre de l'album", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.genre) }}
+                    <div class="col-sm-4">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.genre, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {# Génération du label. #}
+                    {{ form_label(form.support, "Genre de l'album", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                    {# Affichage des erreurs pour ce champ précis. #}
+                    {{ form_errors(form.support) }}
+                    <div class="col-sm-4">
+                        {# Génération de l'input. #}
+                        {{ form_widget(form.support, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_widget(form) }}
+    <input type="submit" value="Create"/>
     {{ form_end(form) }}
 
     <ul>
