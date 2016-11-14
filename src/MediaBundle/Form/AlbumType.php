@@ -28,7 +28,8 @@ class AlbumType extends AbstractType
                         'Vinyl' => 'Vinyl',
                         'CD' => 'CD',
                         'Cassette' => 'Cassette'),
-                    'expanded' => false )
+                    'expanded' => false ))
+                ->add('image', FileType::class, array('label' => "image de l'album")
                 );
     }
     
