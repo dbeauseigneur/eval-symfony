@@ -27,7 +27,20 @@
             </tr>
         </tbody>
     </table>
-
+    {% for commentaire in album.commentaires %}
+        <tr>
+            <td><a href="{{ path('commentaire_show', { 'id': commentaire.id }) }}">{{ commentaire.id }}</a></td>
+            <td>{{ commentaire.utilisateur }}</td>
+            <td>{{ commentaire.commentaire }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('commentaire_show', { 'id': commentaire.id }) }}">show</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
     <ul>
         <li>
             <a href="{{ path('_index') }}">Back to the list</a>
@@ -41,4 +54,7 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}

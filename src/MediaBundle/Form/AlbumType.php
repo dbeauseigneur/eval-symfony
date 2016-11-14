@@ -18,16 +18,16 @@ class AlbumType extends AbstractType
                 ->add('artiste')
                 ->add('genre',ChoiceType::class, array(
                     'choices'  => array(
-                        'Hiphop',
-                        'Soul',
-                        'Rock'),
+                        'Hiphop' => 'Hiphop',
+                        'Soul' => 'Soul',
+                        'Rock' => 'Rock'),
                     'expanded' => false )
                 )
                 ->add('support',ChoiceType::class, array(
                     'choices'  => array(
-                        'Vinyl',
-                        'CD',
-                        'Cassette'),
+                        'Vinyl' => 'Vinyl',
+                        'CD' => 'CD',
+                        'Cassette' => 'Cassette'),
                     'expanded' => false )
                 );
     }

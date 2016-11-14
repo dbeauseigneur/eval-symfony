@@ -138,4 +138,50 @@ class Album
     {
         return $this->support;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $commentaires;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commentaires = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add commentaire
+     *
+     * @param \MediaBundle\Entity\Commentaire $commentaire
+     *
+     * @return Album
+     */
+    public function addCommentaire(\MediaBundle\Entity\Commentaire $commentaire)
+    {
+        $this->commentaires[] = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentaire
+     *
+     * @param \MediaBundle\Entity\Commentaire $commentaire
+     */
+    public function removeCommentaire(\MediaBundle\Entity\Commentaire $commentaire)
+    {
+        $this->commentaires->removeElement($commentaire);
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
 }
