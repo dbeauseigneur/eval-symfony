@@ -11,7 +11,7 @@
                     {# Génération du label. #}
                     {{ form_label(edit_form.title, "Titre de l'album", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
                     {# Affichage des erreurs pour ce champ précis. #}
-                    <-- {{ form_errors(edit_form.title) }} -->
+                    {{ form_errors(edit_form.title) }}
                     <div class="col-sm-4">
                         {# Génération de l'input. #}
                         {{ form_widget(edit_form.title, {'attr': {'class': 'form-control'}}) }}

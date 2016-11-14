@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class CommentaireType extends AbstractType
 {
@@ -19,7 +20,12 @@ class CommentaireType extends AbstractType
                     'empty_data' => 'Anonyme')
                     )
                 ->add('commentaire')
-                ->add('album')        ;
+                ->add('album',EntityType::class , array(
+                    'class' => 'MediaBundle:Album',
+                    'choice_label' => 'title',
+                    'label' => 'titre',
+                    'by_reference' => true,
+                ))        ;
     }
     
     /**
