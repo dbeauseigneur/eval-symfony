@@ -16,6 +16,7 @@
         </thead>
         <tbody>
         {% for album in albums %}
+            {% if genre != '' and genre == album.genre %}
             <tr>
                 <td><a href="{{ path('_show', { 'id': album.id }) }}">{{ album.id }}</a></td>
                 <td>{{ album.title }}</td>
@@ -33,10 +34,23 @@
                     </ul>
                 </td>
             </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
 
+    <form class="form-horizontal" action="{{ path('media:_index') }}" method="POST">
+        <div class="form-group">
+            <select name="genre">
+                <option value="Hiphop">Hiphop</option>
+                <option value="Soul">Soul</option>
+                <option value="Rock">Rock</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input name="submit" type="submit" value="Envoyer le message">
+        </div>
+    </form>
     <ul>
         <li>
             <a href="{{ path('_new') }}">Create a new album</a>

@@ -16,14 +16,20 @@ class AlbumController extends Controller
      * Lists all album entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
         $albums = $em->getRepository('MediaBundle:Album')->findAll();
+        $genre = '';
+
+        if ($request->getMethod() == 'POST') {
+           $genre = $request->get('genre');
+        }
 
         return $this->render('album/index.html.twig', array(
             'albums' => $albums,
+            'genre' => $genre
         ));
     }
 
